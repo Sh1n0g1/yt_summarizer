@@ -1,0 +1,275 @@
+/* -------- Dark Markdown Theme -------- */
+:root {
+  --bg: #0b0f14;
+  --bg-elev: #10161e;
+  --bg-code: #0f141b;
+  --text: #e6e8eb;
+  --text-dim: #a8b0bb;
+  --muted: #7d8691;
+  --link: #7aa2f7;
+  --link-hover: #a0b8ff;
+  --accent: #3fb950;      /* green accent for success/lines */
+  --warning: #ffb454;
+  --danger: #ff6b6b;
+  --border: #1e2630;
+  --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+@media (prefers-color-scheme: light) {
+  /* keep it dark regardless, but you can override here if you want a light theme */
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* readable centered column */
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  line-height: 1.25;
+  margin: 1.6em 0 0.6em;
+  font-weight: 750;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+h2 { font-size: clamp(1.4rem, 2vw, 1.8rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.95rem; color: var(--text-dim); }
+
+/* Paragraphs + general spacing */
+p, ul, ol, pre, blockquote, table, figure {
+  margin: 0.9em 0;
+}
+
+small, .dim { color: var(--text-dim); }
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+/* Inline code */
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+  background: var(--bg-code);
+  color: #d5dbe3;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.15em 0.35em;
+}
+
+/* Fenced code blocks */
+pre {
+  background: var(--bg-code);
+  color: #d5dbe3;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: auto;
+  box-shadow: var(--shadow);
+}
+pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 0.95em;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1.1em 0;
+  padding: 0.75em 1em;
+  background: var(--bg-elev);
+  color: var(--text);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.4rem;
+}
+li { margin: 0.35em 0; }
+ul ul, ol ol, ul ol, ol ul { margin: 0.35em 0; }
+
+/* Horizontal rule */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables (from Markdown 'tables' extension) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+thead {
+  background: #0f1520;
+}
+th, td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  text-align: left;
+  color: var(--text);
+  font-weight: 700;
+}
+tbody tr:nth-child(odd) { background: rgba(255,255,255,0.02); }
+tbody tr:hover { background: rgba(122,162,247,0.07); }
+
+/* Images & figures */
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+figure {
+  display: block;
+  text-align: center;
+}
+figcaption {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+/* Details/Summary */
+details {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+  outline: none;
+}
+
+/* Alerts via fenced blocks (e.g., > **Note:** …) – optional helpers */
+.markdown-alert {
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  margin: 1rem 0;
+  background: var(--bg-elev);
+}
+.markdown-alert.note { border-left: 4px solid var(--link); }
+.markdown-alert.tip { border-left: 4px solid var(--accent); }
+.markdown-alert.warn { border-left: 4px solid var(--warning); }
+.markdown-alert.danger { border-left: 4px solid var(--danger); }
+
+/* KBD */
+kbd {
+  background: #0e131a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-bottom-width: 3px;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85em;
+}
+
+/* Captions, footnotes, superscripts/subscripts */
+sup, sub { line-height: 0; }
+caption, .caption, .footnote, .footnotes {
+  color: var(--text-dim);
+  font-size: 0.92em;
+}
+
+/* Code block language label (if you inject one) */
+pre[data-lang]::before {
+  content: attr(data-lang);
+  display: inline-block;
+  position: relative;
+  top: -0.25rem;
+  left: -0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  background: #0e131a;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.15rem 0.5rem;
+}
+
+/* Anchored headings (optional: if you add anchors in your HTML) */
+.heading-anchor {
+  visibility: hidden;
+  margin-left: 0.35rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+  visibility: visible;
+}
+
+/* Selection */
+::selection {
+  background: rgba(122,162,247,0.35);
+  color: var(--text);
+}
+
+/* Print – keep contrast */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    box-shadow: none;
+  }
+  a { color: #0645ad; border-bottom-color: transparent; }
+  pre, code { background: #f4f4f4; color: #111; border-color: #ddd; }
+  table, img, video, pre { box-shadow: none; }
+}

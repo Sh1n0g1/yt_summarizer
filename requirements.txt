@@ -1,0 +1,7 @@
+youtube-transcript-api
+openai
+rich
+markdown
+pymdown-extensions
+markdown-katex
+pygments
